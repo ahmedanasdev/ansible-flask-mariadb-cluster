@@ -1,0 +1,10 @@
+# MariaDB 12.0 CentOS repository list - created 2025-07-29 16:44 UTC
+# https://mariadb.org/download/
+[mariadb]
+name = MariaDB
+# rpm.mariadb.org is a dynamic mirror if your preferred mirror goes offline. See https://mariadb.org/mirrorbits/ for details.
+# baseurl = https://rpm.mariadb.org/12.0/centos/$releasever/$basearch
+baseurl = https://mariadb.mirror.liquidtelecom.com/yum/12.0/centos/$releasever/$basearch
+# gpgkey = https://rpm.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgkey = https://mariadb.mirror.liquidtelecom.com/yum/RPM-GPG-KEY-MariaDB
+gpgcheck = 1

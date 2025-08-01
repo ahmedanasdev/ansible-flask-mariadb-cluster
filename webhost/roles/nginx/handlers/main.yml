@@ -1,0 +1,11 @@
+---
+- name: activate_firewall
+  service:
+    name: firewalld
+    state: started
+    enabled: true
+
+- name: reload_firewall
+  firewalld:
+    state: reloaded
+    immediate: yes

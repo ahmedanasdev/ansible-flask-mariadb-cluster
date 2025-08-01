@@ -1,0 +1,33 @@
+---
+- name: Install nginx 
+  dnf:
+    name: Nginx
+    state: latest
+
+  notify: 
+   - activate_firewall
+
+- meta: flush_handlers
+
+- name: Enable and start nginx 
+  systemd: name=nginx enabled=yes state=started
+
+- name: Allow port 80
+  firewalld:
+    port: 80/tcp
+    zone: public
+    state: enabled
+    permanent: true
+    #immediate: yes
+
+
+- name: Allow port 80
+  firewalld:
+    port: 80/tcp
+    zone: public
+    state: enabled
+    permanent: true
+  notify:
+    - reload_firewall
+
+- meta: flush_handlers
