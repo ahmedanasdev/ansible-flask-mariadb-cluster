@@ -1,5 +1,7 @@
 ---
-- host: web
+- name: Deploy Flask app with Nginx
+  hosts: web
+  become: yes
   roles:
-   -nginx
-   -flask
+    - nginx
+    - flask

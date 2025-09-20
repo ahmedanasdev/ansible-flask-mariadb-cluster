@@ -1,9 +1,15 @@
 ---
 - name: dnf_clean
   command: dnf clean all
+  changed_when: false   
 
-- name: firewalld_reload 
-  command: firewall-cmd --reload 
+- name: firewalld_reload
+  firewalld:
+    state: reloaded
+    immediate: yes      
+  changed_when: false   
 
 - name: stop_maria
-  command: systemctl stop mariadb 
+  systemd:
+    name: mariadb
+    state: stopped

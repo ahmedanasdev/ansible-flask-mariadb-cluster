@@ -1,33 +1,38 @@
---- 
-- selinux:
+---
+- name: Set SELinux to permissive
+  selinux:
     policy: targeted
     state: permissive
 
 - name: Push MariaDB Repo
-  copy: src=maria.repo dest=/etc/yum.repos.d/
-  notify:
-   - dnf_clean
+  copy:
+    src: maria.repo
+    dest: /etc/yum.repos.d/maria.repo
+  notify: dnf_clean
 
 - meta: flush_handlers
 
-- name: Install MariaDB PKGS
+- name: Install MariaDB packages
   dnf:
-   name:
-    - mariadb-server
-    - MariaDB-client
-   state: latest
+    name:
+      - mariadb-server
+      - mariadb-client
+    state: latest
 
 - name: Enable and start MariaDB service
-  systemd: name=mariadb enabled=yes state=started
+  systemd:
+    name: mariadb
+    enabled: yes
+    state: started
 
-- name: allow MariaDB Port
+- name: Allow MariaDB port
   firewalld:
-   port: 3306/tcp
-   zone: public
-   state: enabled
-   permanent: true
+    port: 3306/tcp
+    zone: public
+    state: enabled
+    permanent: true
   notify:
-   - firewalld_reload
-   - stop_maria
+    - firewalld_reload
+    - stop_maria
 
 - meta: flush_handlers

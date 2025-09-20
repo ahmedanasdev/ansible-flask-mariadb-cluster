@@ -1,0 +1,16 @@
+---
+- name: service_enable
+  systemd:
+    name: app
+    enabled: yes
+
+- name: service_start
+  systemd:
+    name: app
+    state: started
+
+
+- name: nginx_reload
+  systemd:
+    name: nginx
+    state: restarted

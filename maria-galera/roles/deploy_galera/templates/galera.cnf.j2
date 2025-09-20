@@ -2,7 +2,7 @@
 binlog_format=ROW
 default-storage-engine=innodb
 innodb_autoinc_lock_mode=2
-bind-address=0.0.0.0
+bind-address=0.0.0.0 
 
 # Galera Provider Configuration
 wsrep_on=ON
@@ -16,5 +16,5 @@ wsrep_cluster_address=gcomm://192.168.100.20,192.168.100.21
 wsrep_sst_method=rsync
 
 # Galera Node Configuration
-wsrep_node_address="{{ ansible_host }}"
-wsrep_node_name="{{ ansible_host }}"
+wsrep_node_address='{{ ansible_host }}'
+wsrep_node_name='{{ ansible_host }}'

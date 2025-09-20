@@ -1,3 +1,5 @@
 ---
-- name: firewalld_reload 
-  command: firewall-cmd --reload 
+- name: firewalld_reload
+  firewalld:
+    state: reloaded
+    immediate: yes

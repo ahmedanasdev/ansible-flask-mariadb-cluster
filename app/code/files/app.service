@@ -1,0 +1,14 @@
+[Unit]
+Description=Flask App
+After=network.target
+
+[Service]
+User=flaskuser
+Group=flaskuser
+WorkingDirectory=/opt/flask_app
+ExecStart=/opt/flask_app/venv/bin/uwsgi --http :5000 --wsgi-file /opt/flask_app/app.py --callable app
+Restart=always
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

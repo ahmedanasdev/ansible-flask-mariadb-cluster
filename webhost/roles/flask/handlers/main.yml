@@ -1,0 +1,8 @@
+---
+- name: Install_flask
+  pip:
+    name:
+      - flask
+      - flask-mysqldb
+      - uwsgi
+    executable: pip3

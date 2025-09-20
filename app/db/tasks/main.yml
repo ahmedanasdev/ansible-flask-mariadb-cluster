@@ -1,0 +1,16 @@
+---
+- name: Send DB SQL file
+  copy:
+    src: employee_db.sql
+    dest: /root/employee_db.sql
+
+- name: Ensure employee_db exists
+  mysql_db:
+    name: employee_db
+    state: present
+
+- name: Import employee_db data
+  mysql_db:
+    name: employee_db
+    state: import
+    target: /root/employee_db.sql

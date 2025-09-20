@@ -1,6 +1,7 @@
 ---
-- hosts: DBCM
-- roles:
-  - deploy_maria
-  - deploy_galera
-  - test_cluster
+- name: Deploy MariaDB + Galera Cluster
+  hosts: DBCM
+  roles:
+    - deploy_maria
+    - deploy_galera
+    - test_cluster

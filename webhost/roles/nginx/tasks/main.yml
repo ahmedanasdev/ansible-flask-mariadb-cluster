@@ -1,33 +1,34 @@
 ---
-- name: Install nginx 
+- name: Install nginx
   dnf:
-    name: Nginx
+    name: nginx
     state: latest
-
-  notify: 
-   - activate_firewall
+  notify: activate_firewall
 
 - meta: flush_handlers
 
-- name: Enable and start nginx 
-  systemd: name=nginx enabled=yes state=started
+- name: Enable and start nginx
+  systemd:
+    name: nginx
+    enabled: yes
+    state: started
 
-- name: Allow port 80
+# فتح البورت runtime (مؤقت) عشان يشتغل فورًا
+- name: Allow port 80 runtime
+  firewalld:
+    port: 80/tcp
+    zone: public
+    state: enabled
+    permanent: false
+  notify: reload_firewall
+
+# فتح البورت permanent (عشان يفضل بعد reboot)
+- name: Allow port 80 permanent
   firewalld:
     port: 80/tcp
     zone: public
     state: enabled
     permanent: true
-    #immediate: yes
-
-
-- name: Allow port 80
-  firewalld:
-    port: 80/tcp
-    zone: public
-    state: enabled
-    permanent: true
-  notify:
-    - reload_firewall
+  notify: reload_firewall
 
 - meta: flush_handlers
