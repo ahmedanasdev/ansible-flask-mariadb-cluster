@@ -37,45 +37,7 @@ This repository contains a structured Ansible lab setup to automate deployment o
 - SSH access to managed nodes
 - Python installed on nodes (for Ansible)
 
----
 
-📁 Project Structure
-
-### App Role
-app/
-├── code/
-│   ├── files/
-│   │   ├── app.py
-│   │   └── app.service
-│   ├── handlers/
-│   │   └── main.yml
-│   └── tasks/
-│       └── main.yml
-├── config/
-│   └── templates/
-│       └── app.conf.j2
-├── db/
-│   └── files/
-│       └── employee_db.sql
-
-
-### Maria-Galera Role
-maria-galera/
-├── deploy_galera/
-│   └── templates/galera.cnf.j2
-├── deploy_maria/
-│   └── files/maria.repo
-└── test_cluster/
-
-
-### Webhost Role
-webhost/
-├── flask/
-└── nginx/
-    └── templates/nginx.conf.j2
-
-
----
 ## 🚀 Usage
 
 Each directory is an independent Ansible setup. You can run any playbook with:
