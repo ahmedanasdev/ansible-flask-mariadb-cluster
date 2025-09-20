@@ -41,8 +41,71 @@ This repository contains a structured Ansible lab setup to automate deployment o
 
 📁 Project Structure
 
-<pre> ``` 1st-lab/ ├── app/ # Standalone App Setup (DB + Web + Config) │ ├── code/ │ │ ├── files/ │ │ │ ├── app.py │ │ │ └── app.service │ │ ├── handlers/main.yml │ │ └── tasks/main.yml │ ├── config/ │ │ ├── files/app │ │ ├── handlers/main.yml │ │ ├── tasks/main.yml │ │ └── templates/app.conf.j2 │ ├── db/ │ │ ├── files/employee_db.sql │ │ └── tasks/main.yml │ ├── dbplay.yml │ ├── inventory.ini │ ├── mplay.yml │ └── whplay.yml ├── maria-galera/ # Galera Cluster Setup │ ├── inventory.ini │ ├── mplay.yml │ └── roles/ │ ├── deploy_galera/ │ │ ├── handlers/main.yml │ │ ├── tasks/main.yml │ │ └── templates/galera.cnf.j2 │ ├── deploy_maria/ │ │ ├── files/maria.repo │ │ ├── handlers/mail.yml │ │ └── tasks/main.yml │ └── test_cluster/ ├── webhost/ # Web Server Setup (Flask + Nginx) │ ├── inventory.ini │ ├── mplay.yml │ └── roles/ │ ├── flask/ │ │ ├── handlers/main.yml │ │ └── tasks/main.yml │ └── nginx/ │ ├── handlers/main.yml │ ├── tasks/main.yml │ └── templates/nginx.conf.j2 ├── LICENSE └── README.md ``` </pre>
-
+1st-lab/
+├── app/ # Standalone App Setup (DB + Web + Config)
+│ ├── code/
+│ │ ├── files/
+│ │ │ ├── app.py
+│ │ │ └── app.service
+│ │ ├── handlers/
+│ │ │ └── main.yml
+│ │ └── tasks/
+│ │ └── main.yml
+│ ├── config/
+│ │ ├── files/
+│ │ │ └── app
+│ │ ├── handlers/
+│ │ │ └── main.yml
+│ │ ├── tasks/
+│ │ │ └── main.yml
+│ │ └── templates/
+│ │ └── app.conf.j2
+│ ├── db/
+│ │ ├── files/
+│ │ │ └── employee_db.sql
+│ │ └── tasks/
+│ │ └── main.yml
+│ ├── dbplay.yml
+│ ├── inventory.ini
+│ ├── mplay.yml
+│ └── whplay.yml
+├── maria-galera/ # Galera Cluster Setup
+│ ├── inventory.ini
+│ ├── mplay.yml
+│ └── roles/
+│ ├── deploy_galera/
+│ │ ├── handlers/
+│ │ │ └── main.yml
+│ │ ├── tasks/
+│ │ │ └── main.yml
+│ │ └── templates/
+│ │ └── galera.cnf.j2
+│ ├── deploy_maria/
+│ │ ├── files/
+│ │ │ └── maria.repo
+│ │ ├── handlers/
+│ │ │ └── mail.yml
+│ │ └── tasks/
+│ │ └── main.yml
+│ └── test_cluster/
+├── webhost/ # Web Server Setup (Flask + Nginx)
+│ ├── inventory.ini
+│ ├── mplay.yml
+│ └── roles/
+│ ├── flask/
+│ │ ├── handlers/
+│ │ │ └── main.yml
+│ │ └── tasks/
+│ │ └── main.yml
+│ └── nginx/
+│ ├── handlers/
+│ │ └── main.yml
+│ ├── tasks/
+│ │ └── main.yml
+│ └── templates/
+│ └── nginx.conf.j2
+├── LICENSE
+└── README.md
 
 ---
 ## 🚀 Usage
